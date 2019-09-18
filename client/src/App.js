@@ -33,6 +33,7 @@ class App extends React.Component {
 
     return (
       <div>
+        {process.env.NODE_ENV === 'development' ? (<div>Dev mode</div>) : null}
         <Header />
         <Switch>
           <Route exact path='/' component={HomePage} />
