@@ -34,7 +34,9 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
         ...additionalData
       });
     } catch (error) {
-      console.log('error creating user', error.message);
+      if (process.env.NODE_ENV === 'development') {
+        console.log('error creating user', error.message);
+      }
     }
   }
 
