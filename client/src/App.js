@@ -12,13 +12,15 @@ import { GlobalStyle } from './global.styles';
 import { selectCurrentUser } from './redux/user/user.selectors';
 import { checkUserSession } from './redux/user/user.actions';
 
-const HomePage = lazy(() => import('./pages/homepage/homepage.component'));
+// These 2 pages should always be loaded for PWA.
+import HomePage from './pages/homepage/homepage.component';
+import ErrorPage from './pages/error/error.component';
+
 const ShopPage = lazy(() => import('./pages/shop/shop.component'));
 const SignInAndSignUpPage = lazy(() =>
   import('./pages/sign-in-and-sign-up/sign-in-and-sign-up.component')
 );
 const CheckoutPage = lazy(() => import('./pages/checkout/checkout.component'));
-const ErrorPage = lazy(() => import('./pages/error/error.component'));
 
 const App = ({ checkUserSession, currentUser }) => {
   useEffect(() => {
